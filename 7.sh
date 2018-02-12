@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ $# -ne 2 ]
+then
+echo "Two arguments only";
+exit
+fi
 
 if [ ! -f $2 ] 
 then
