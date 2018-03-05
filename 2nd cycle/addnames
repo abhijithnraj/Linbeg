@@ -1,0 +1,37 @@
+ #!/bin/bash
+
+if [ $# -ne 2 ]
+then
+echo "Please Enter Only Two Arguments"
+exit
+fi
+
+if [ -f $1 ]
+then
+	echo "The File $1 Found"
+else
+	echo "The file $1 doesnt exist"
+fi
+
+x=$(cat $1 | grep $2 )
+if [ -z $x ]
+then
+	echo "The given id $2 Doesnt exist"
+	echo  "Added $2 to the list"
+	echo $2 >> $1
+else
+	echo "The name Already Exists"
+fi
+
+echo "Do You want to see the snaphot of classlist(Y/N)"
+read choice
+
+if [ $choice == "Y" ]
+then
+	cat $1
+else
+	echo "QUIT!!! Done"
+fi
+
+
+
